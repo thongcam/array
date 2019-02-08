@@ -25,10 +25,12 @@ int main() {
   for (i = 0; i < SIZE; i++) {
     printf("%i, ",a[i]);
   }
+  int alreadyzero = 0;
+
   for (i = 0; i < SIZE; i++) {
     int duplicated = 0;
     for (j = 0; j<SIZE; j++){
-      if (a[i] == res[j]) {
+      if ((a[i] == res[j] && a[i] != 0)||(a[i] == 0 && alreadyzero == 1)) {
         duplicated = 1;
         break;
       }
@@ -36,6 +38,9 @@ int main() {
     if (duplicated == 0) {
       res[i_res] = a[i];
       i_res++;
+    }
+    if (a[i] == 0) {
+      alreadyzero = 1;
     }
   }
   for (i = i_res; i < SIZE; i++) {

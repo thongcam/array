@@ -9,17 +9,6 @@ int main() {
     int div = 2;
     if (a[i] == 0 || a[i] == 1) {
       continue;
-    } else if (a[i] == 2) {
-      duplicated = 0;
-      for (int temp = 0; temp < SIZE; temp++) {
-        if (res[temp] == a[i]) {
-          duplicated = 1;
-        }
-      }
-      if (duplicated == 0){
-        res[prime_count] = a[i];
-        prime_count += 1;
-      }
     } else {
       for (int temp = 2; temp < a[i]/2; temp++) {
         prime = 1;
@@ -28,7 +17,7 @@ int main() {
           break;
         }
       }
-      if (prime == 1) {
+      if (prime == 1 || a[i] == 2) {
         duplicated = 0;
         for (int temp = 0; temp < SIZE; temp++) {
           if (res[temp] == a[i]) {
