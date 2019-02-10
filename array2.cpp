@@ -3,34 +3,32 @@
 
 int main() {
   int i, prime_count = 0;
-  int prime = 1, duplicated = 0;
+  bool prime, duplicated;
   int res[SIZE], a[SIZE];
-  //{7, 3, 5, 7, 1, 1, 2, 5, 8, 9, 6}
   printf("Nhap cac phan tu cua mang: (%i phan tu)\n", SIZE );
   for (i = 0; i < SIZE; i++) {
     printf("\nNhap phan tu thu %i: ",i+1 );
     scanf("%i",&a[i]);
   }
   for (i = 0; i < SIZE; i++) {
-    int div = 2;
     if (a[i] <= 0 || a[i] == 1) {
       continue;
     } else {
-      for (int temp = 2; temp < a[i]/2; temp++) {
-        prime = 1;
+      for (int temp = 2; temp <= a[i]/2; temp++) {
+        prime = true;
         if (a[i]%temp == 0) {
-          prime = 0;
+          prime = false;
           break;
         }
       }
-      if (prime == 1 || a[i] == 2) {
-        duplicated = 0;
+      if (prime || a[i] == 2 || a[i] == 3) {
+        duplicated = false;
         for (int temp = 0; temp < SIZE; temp++) {
           if (res[temp] == a[i]) {
-            duplicated = 1;
+            duplicated = true;
           }
         }
-        if (duplicated == 0){
+        if (duplicated == false){
           res[prime_count] = a[i];
           prime_count += 1;
         }
