@@ -4,10 +4,16 @@
 int main() {
   int i, prime_count = 0;
   int prime = 1, duplicated = 0;
-  int res[SIZE], a[SIZE] = {7, 3, 5, 7, 1, 1, 2, 5, 8, 9, 6};
+  int res[SIZE], a[SIZE];
+  //{7, 3, 5, 7, 1, 1, 2, 5, 8, 9, 6}
+  printf("Nhap cac phan tu cua mang: (%i phan tu)\n", SIZE );
+  for (i = 0; i < SIZE; i++) {
+    printf("\nNhap phan tu thu %i: ",i+1 );
+    scanf("%i",&a[i]);
+  }
   for (i = 0; i < SIZE; i++) {
     int div = 2;
-    if (a[i] == 0 || a[i] == 1) {
+    if (a[i] <= 0 || a[i] == 1) {
       continue;
     } else {
       for (int temp = 2; temp < a[i]/2; temp++) {
