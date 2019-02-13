@@ -25,29 +25,26 @@ int main() {
   for (i = 0; i < SIZE; i++) {
     printf("%i, ",a[i]);
   }
-  int alreadyzero = 0;
+  bool alreadyzero = false;
 
   for (i = 0; i < SIZE; i++) {
-    int duplicated = 0;
+    bool duplicated = false;
     for (j = 0; j<SIZE; j++){
-      if ((a[i] == res[j] && a[i] != 0)||(a[i] == 0 && alreadyzero == 1)) {
-        duplicated = 1;
+      if ((a[i] == res[j] && a[i] != 0)||(a[i] == 0 && alreadyzero)) {
+        duplicated = true;
         break;
       }
     }
-    if (duplicated == 0) {
+    if (duplicated == false) {
       res[i_res] = a[i];
       i_res++;
     }
     if (a[i] == 0) {
-      alreadyzero = 1;
+      alreadyzero = true;
     }
   }
-  for (i = i_res; i < SIZE; i++) {
-    res[i] = 0;
-  }
   printf("\nFinal array:\n");
-  for (i = 0; i < SIZE; i++) {
+  for (i = 0; i < i_res; i++) {
     printf("%i, ",res[i]);
   }
   return 0;

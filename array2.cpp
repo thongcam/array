@@ -11,27 +11,29 @@ int main() {
     scanf("%i",&a[i]);
   }
   for (i = 0; i < SIZE; i++) {
-    if (a[i] <= 0 || a[i] == 1) {
+    if (a[i] < 2) {
       continue;
-    } else {
-      for (int temp = 2; temp <= a[i]/2; temp++) {
+    } else if(a[i] == 2) {prime =true;}
+    else {
+      for (int temp = 2; temp <= a[i]/2 + 1; temp++) {
         prime = true;
         if (a[i]%temp == 0) {
           prime = false;
           break;
         }
       }
-      if (prime || a[i] == 2 || a[i] == 3) {
-        duplicated = false;
-        for (int temp = 0; temp < SIZE; temp++) {
-          if (res[temp] == a[i]) {
-            duplicated = true;
-          }
+    }
+    if (prime) {
+      duplicated = false;
+      for (int temp = 0; temp < SIZE; temp++) {
+        if (res[temp] == a[i]) {
+          duplicated = true;
+          break;
         }
-        if (duplicated == false){
-          res[prime_count] = a[i];
-          prime_count += 1;
-        }
+      }
+      if (duplicated == false){
+        res[prime_count] = a[i];
+        prime_count += 1;
       }
     }
   }
